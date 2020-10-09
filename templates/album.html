@@ -31,6 +31,7 @@
         {% endif %}
           <img src="{{ media.thumbnail }}" alt="{{ media.url }}"
               title="{{ media.title }}" /></a>
+	  <span class="album_title">{{ media.title }}</span>
       </div>
       {% endif %}
       {% if media.type == "video" %}
@@ -44,6 +45,7 @@
             {% if media.big %} data-big="{{ media.big_url }}"{% endif %}>
             <img src="{{ media.thumbnail }}" alt="{{ media.url }}"
                 title="{{ media.title }}" /></a>
+	    <span class="album_title">{{ media.title }}</span>
         </div>
         <!-- This contains the hidden content for the video -->
         <div style='display:none'>
