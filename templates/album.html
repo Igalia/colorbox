@@ -51,9 +51,10 @@
         <div style='display:none'>
           <div id="{{ mhash }}">
             <video
+              width="100%"
 	      {% if settings.colorbox_video_poster %} poster="{{ album.index_url }}{{ settings.colorbox_video_poster }}"{% endif %}
-	      {% if media.width %} width="{{ media.width }}"{% endif %}
-	      {% if media.height %} height="{{ media.height }}"{% endif %}
+	      {% if media.width %} width="{{ media.width }}"{% else %}width="100%"{% endif %}
+	      {% if media.height %} height="{{ media.height }}"{% else %}height="100%"{% endif %}
 	      controls>
               <source src='{{ media.url }}' type='{{ media.mime }}' />
             </video>
