@@ -27,6 +27,12 @@
           {{ index_title }}
           {% endif %}
           </a></h1>
+	  {% if 'search' in settings.plugins %}
+	  <form action="/search.html" method="get">
+	    <input type="search" id="search-box" name="query">
+	    <input type="submit" value="Search">
+	  </form>
+	  {% endif %}
           {% include 'links.html' %}
           {% include 'footer.html' %}
         </div>
