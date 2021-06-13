@@ -50,8 +50,7 @@
             <img src="{{ media.thumbnail }}" alt="{{ media.url }}"
                 title="{{ media.title }}" /></a>
 	  <span class="album_title">{{ media.title }}<sup>
-		<a href="{{ media.url }}">v</a>
-		{% if slideurl %},<a href="{{ slideurl }}">s</a>{% endif %}
+		<a href="{{ media.url }}">v</a>{% if slideurl %}, <a href="{{ slideurl }}">s</a>{% endif %}
 	   </sup></span>
         </div>
         <!-- This contains the hidden content for the video -->
