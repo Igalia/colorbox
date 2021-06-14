@@ -22,9 +22,8 @@
 		var path = media.url.substring(0, media.url.lastIndexOf("/"));
 		var name = media.url.substring(media.url.lastIndexOf("/") + 1);
 		var mhash = name.replaceAll('.', '').replaceAll(' ', '');
-		var slideurl = '';
-		if (media.slides != '')
-		    slideurl = media.url.substring(0, media.url.lastIndexOf(".")) + "." + media.slides;
+		if (media.slides)
+		    var slideurl = media.url.substring(0, media.url.lastIndexOf(".")) + "." + media.slides;
 		var thumbnail = path + "/" + media.thumbnail;
 		appendString += `<div class="${column_size_t} columns thumbnail">
           <a href="#${mhash}" class="gallery" inline="yes" title="${name}">
@@ -32,7 +31,7 @@
                 title="${media.title}" /></a>
 	  <span class="album_title">${media.title}<sup>
 		<a href="${media.url}">v</a>`;
-		if (slideurl != '')
+		if (media.slides)
 		    appendString += `, <a href="${slideurl}">s</a>`;
 		appendString += `</sup></span></div><div style="display:none">
           <div id="${mhash}">
