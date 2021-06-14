@@ -73,7 +73,7 @@
 	    this.field('id');
 	    this.field('title');
 	    this.field('author');
-	    this.field('albums');
+	    this.field('album');
 
 	    // Add data to lunr
 	    for (var key in window.store) {
@@ -81,7 +81,7 @@
 		    'id': key,
 		    'title': window.store[key].title,
 		    'author': window.store[key].author,
-		    'albums': window.store[key].albums,
+		    'album': window.store[key].album,
 		    'thumbnail': window.store[key].thumbnail,
 		    'mime': window.store[key].mime,
 		    'slides': window.store[key].slides,
