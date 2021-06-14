@@ -33,7 +33,7 @@
 	  <span class="album_title">${media.title}<sup>
 		<a href="${media.url}">v</a>`;
 		if (slideurl != '')
-		    appendString += `, <a href=${slideurl}">s</a>`;
+		    appendString += `, <a href="${slideurl}">s</a>`;
 		appendString += `</sup></span></div><div style="display:none">
           <div id="${mhash}">
             <video ${videoposter_tag} width="100%" height="100%"
