@@ -47,7 +47,7 @@
 	    }
 	    searchResults.innerHTML = appendString;
 	} else {
-	    searchResults.innerHTML = '';
+	    searchResults.innerHTML = '<h2>No results found</h2>';
 	}
     }
 
