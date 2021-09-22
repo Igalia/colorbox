@@ -37,8 +37,16 @@
       {% if media.type == "video" %}
         {% set mhash = media.url|replace('.', '')|replace(' ', '') %}
 	{% set urltokens = media.url.split('.') %}
+	{% set slidelist=[] %}
 	{% if media.meta.slides %}
-	  {% set slideurl = urltokens[:-1]|join('.')~"."~media.meta.slides[0] %}
+	  {% for s in media.meta.slides %}
+	  {% if s.startswith('http') %}
+	  {% set _ = slidelist.append(s) %}
+	  {% else %}
+	  {% set slideurl = urltokens[:-1]|join('.')~"."~s %}
+	  {% set _ = slidelist.append(slideurl) %}
+	  {% endif %}
+	  {% endfor %}
 	{% endif %}
         <div class="{{ column_size_t }} columns thumbnail">
           {% if 'sigal.plugins.media_page' in settings.plugins %}
@@ -50,7 +58,7 @@
             <img src="{{ media.thumbnail }}" alt="{{ media.url }}"
                 title="{{ media.title }}" /></a>
 	  <span class="album_title">{{ media.title }}<sup>
-		<a href="{{ media.url }}">v</a>{% if slideurl %}, <a href="{{ slideurl }}">s</a>{% endif %}
+	        <a href="{{ media.url }}">v</a>{% for slideurl in slidelist %}, <a href="{{ slideurl }}">s</a>{% endfor %}
 	   </sup></span>
         </div>
         <!-- This contains the hidden content for the video -->
